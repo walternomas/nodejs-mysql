@@ -199,3 +199,6 @@ $RECYCLE.BIN/
 
 # Postgres
 postgres_data
+
+# MySQL
+mysql_data
