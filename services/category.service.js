@@ -1,14 +1,9 @@
+const { Boom } = require('@hapi/boom');
 const { models } = require('../libs/sequelize');
 
 class CategoryService {
 
   constructor() {
-  }
-
-  async getOne(id) {
-    const query = 'SELECT * FROM categories WHERE id = $1';
-    const category = await this.pool.query(query, [id]);
-    return category.rows;
   }
 
   async create(data) {
@@ -25,20 +20,22 @@ class CategoryService {
     const category = await models.Category.findByPk(id, {
       includes: ['products']
     });
+    if (!category) {
+      throw Boom.notFound('category not found');
+    }
     return category;
   }
 
   async update(id, changes) {
-    return {
-      id,
-      changes,
-    };
+    const model = await this.findOne(id);
+    const rta = await model.update(changes);
+    return rta;
   }
 
   async delete(id) {
-    const query = 'DELETE FROM categories WHERE id = $1';
-    await this.pool.query(query, [id]);
-    return { id };
+    const model = await this.findOne(id);
+    await model.destroy();
+    return { rta: true };
   }
 
 }

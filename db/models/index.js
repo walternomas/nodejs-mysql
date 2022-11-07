@@ -4,6 +4,7 @@ const { Category, CategorySchema } = require('./category.model');
 const { Product, ProductSchema } = require('./product.model');
 const { Order, OrderSchema } = require('./order.model');
 const { OrderProduct, OrderProductSchema } = require('./order-product.model');
+const { Rubro, RubroSchema } = require('./rubro.model');
 
 function setupModels(sequelize) {
   User.init(UserSchema, User.config(sequelize));
@@ -12,6 +13,7 @@ function setupModels(sequelize) {
   Product.init(ProductSchema, Product.config(sequelize));
   Order.init(OrderSchema, Order.config(sequelize));
   OrderProduct.init(OrderProductSchema, OrderProduct.config(sequelize));
+  Rubro.init(RubroSchema, Rubro.config(sequelize));
 
   User.associate(sequelize.models);
   Customer.associate(sequelize.models);
