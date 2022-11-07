@@ -1,4 +1,3 @@
-const faker = require('faker');
 const boom = require('@hapi/boom');
 const { Op } = require('sequelize');
 
@@ -31,8 +30,6 @@ class ProductsService {
     if (price_min && price_max) {
       options.where.price = {
         [Op.between]: [price_min, price_max],
-        // [Op.gte]: price_min,
-        // [Op.lte]: price_max,
       }
     }
 

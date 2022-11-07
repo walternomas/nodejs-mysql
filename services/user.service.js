@@ -1,12 +1,8 @@
 const boom = require('@hapi/boom');
-//const getConnection = require('../libs/postgres');
-//const pool = require('../libs/postgres.pool');
 const { models } = require('./../libs/sequelize');
 
 class UserService {
   constructor() {
-    // this.pool = pool;
-    // this.pool.on('error', (err) => console.error(err));
   }
 
   async create(data) {
@@ -23,7 +19,7 @@ class UserService {
 
   async findOne(id) {
     const user = await models.User.findByPk(id);
-    if(!user) {
+    if (!user) {
       throw boom.notFound('user not found');
     }
     return user;

@@ -12,7 +12,7 @@ const {
 const router = express.Router();
 const service = new CustomerService();
 
-router.get('/', async (req, res,next) => {
+router.get('/', async (req, res, next) => {
   try {
     res.json(await service.find());
   } catch (error) {
@@ -40,7 +40,7 @@ router.patch('/:id',
       const { id } = req.params;
       const body = req.body;
       res.status(201).json(await service.update(id, body));
-    }catch (error) {
+    } catch (error) {
       next(error);
     }
   }
@@ -52,7 +52,7 @@ router.delete('/:id',
     try {
       const { id } = req.params;
       res.status(200).json(await service.delete(id));
-    }catch (error) {
+    } catch (error) {
       next(error);
     }
   }

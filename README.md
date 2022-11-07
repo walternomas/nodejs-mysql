@@ -1,2 +1,1 @@
-## Backend con Node.js: Base de Datos con PostgreSQL
-
+## Backend con Node.js: Base de Datos con MySQL

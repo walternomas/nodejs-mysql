@@ -1,7 +1,11 @@
 const express = require('express');
 const UserService = require('./../services/user.service');
 const validatorHandler = require('./../middlewares/validator.handler');
-const { updateUserSchema, createUserSchema, getUserSchema } = require('./../schemas/user.schema');
+const {
+  updateUserSchema,
+  createUserSchema,
+  getUserSchema
+} = require('./../schemas/user.schema');
 
 const router = express.Router();
 const service = new UserService();
@@ -62,7 +66,7 @@ router.delete('/:id',
     try {
       const { id } = req.params;
       await service.delete(id);
-      res.status(201).json({id});
+      res.status(201).json({ id });
     } catch (error) {
       next(error);
     }

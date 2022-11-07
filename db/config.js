@@ -2,7 +2,6 @@ const { config } = require('./../config');
 
 const USER = encodeURIComponent(config.dbUser);
 const PASS = encodeURIComponent(config.dbPass);
-// const URI = `postgres://${USER}:${PASS}@${config.dbHost}:${config.dbPort}/${config.dbName}`;
 const URI = `mysql://${USER}:${PASS}@${config.dbHost}:${config.dbPort}/${config.dbName}`;
 
 module.exports = {

@@ -3,11 +3,11 @@
 const { UserSchema, USER_TABLE } = require('./../models/user.model');
 
 module.exports = {
-  async up (queryInterface) {
+  async up(queryInterface) {
     await queryInterface.addColumn(USER_TABLE, 'role', UserSchema.role);
   },
 
-  async down (queryInterface) {
+  async down(queryInterface) {
     await queryInterface.removeColumn(USER_TABLE, 'role');
   }
 };

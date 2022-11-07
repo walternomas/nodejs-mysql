@@ -8,11 +8,11 @@ const amount = Joi.number().integer().min(1);
 
 
 const getOrderSchema = Joi.object({
-	id: id.required(),
+  id: id.required(),
 })
 
 const createOrderSchema = Joi.object({
-	customerId: customerId.required(),
+  customerId: customerId.required(),
 });
 
 const addItemSchema = Joi.object({
@@ -22,7 +22,7 @@ const addItemSchema = Joi.object({
 });
 
 module.exports = {
-	getOrderSchema,
-	createOrderSchema,
+  getOrderSchema,
+  createOrderSchema,
   addItemSchema
 }
